@@ -103,7 +103,7 @@ terraform/                 IaC: canary identities, CloudTrail, EventBridge, Lamb
 scripts/
   seed_honeytokens.py      plants canary keys into decoy locations                   [Person A]
 src/
-  handler.py               Lambda entry point (src.handler.lambda_handler)           [Person B]
+  handler.py               Lambda entry point (handler.lambda_handler)           [Person B]
   cli.py                   offline replay/demo driver                                [Person B]
   core/
     models.py                CanaryEvent - one normalised event shape
@@ -173,7 +173,7 @@ handler path, required IAM permissions, environment variables, accepted input
 shapes and the canary-naming requirement.
 
 ```bash
-make package                  # -> lambda_payload.zip (handler: src.handler.lambda_handler)
+make package                  # -> terraform/lambda_payload.zip (handler: handler.lambda_handler)
 cd terraform && terraform init && terraform apply
 ```
 

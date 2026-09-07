@@ -2,7 +2,7 @@
 
 Person A wires this up in ``terraform/lambda.tf``:
 
-    handler = "src.handler.lambda_handler"
+    handler = "handler.lambda_handler"
     runtime = "python3.12"
 
 The function accepts a single EventBridge event (the normal path) or an SQS /

@@ -9,7 +9,7 @@ Nothing here requires reading the Python.
 resource "aws_lambda_function" "canary_detector" {
   function_name = "canary-identity-detector"
   runtime       = "python3.12"
-  handler       = "src.handler.lambda_handler"   # <-- entry point
+  handler       = "handler.lambda_handler"   # <-- entry point
   filename      = "${path.module}/../lambda_payload.zip"
   timeout       = 60                             # >= TIMELINE_QUERY_TIMEOUT + 15
   memory_size   = 256

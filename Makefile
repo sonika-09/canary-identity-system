@@ -14,9 +14,9 @@ demo:
 
 # Build the Lambda deployment package Person A references from terraform/lambda.tf
 package:
-	rm -f lambda_payload.zip
-	cd . && zip -r lambda_payload.zip src -x '*__pycache__*' '*.pyc' >/dev/null
-	@echo "Built lambda_payload.zip (handler: src.handler.lambda_handler)"
+	rm -f terraform/lambda_payload.zip
+	cd src && zip -r ../terraform/lambda_payload.zip . -x '*__pycache__*' '*.pyc' >/dev/null
+	@echo "Built terraform/lambda_payload.zip (handler: handler.lambda_handler)"
 
 clean:
 	rm -rf .pytest_cache .coverage lambda_payload.zip

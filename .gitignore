@@ -19,3 +19,4 @@ htmlcov/
 *.pem
 credentials
 lambda_payload.zip
+terraform/lambda_payload.zip

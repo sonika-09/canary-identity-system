@@ -3,10 +3,14 @@ resource "aws_cloudwatch_event_rule" "canary_rule" {
   description = "Fires whenever API requests are made using Canary Credentials"
 
   event_pattern = jsonencode({
-    "detail-type" = ["AWS API Call via CloudTrail"],
+    "detail-type" = ["AWS API Call via CloudTrail"]
     "detail" = {
       "userIdentity" = {
         "userName" = [aws_iam_user.canary_user.name]
+        "arn" = [
+          aws_iam_user.canary_user.arn,
+          "arn:aws:sts::${data.aws_caller_identity.current.account_id}:assumed-role/${aws_iam_role.canary_role.name}/*"
+        ]
       }
     }
   })
